@@ -31,7 +31,7 @@ def get_numbers_ticket(min, max, quantity):
     unique_numbers.sort()
 
     # Виведення повідомлення з набором чисел
-    print(unique_numbers)
+    #print(unique_numbers)
 
     return unique_numbers
 
@@ -39,7 +39,8 @@ def get_numbers_ticket(min, max, quantity):
     # Виведення кращого повідомлення про помилку
     print(f"Помилка: {e}")
 
-get_numbers_ticket(1, 49, 6)
+lottery_numbers = get_numbers_ticket(1, 49, 6)
+print("Ваші лотерейні числа:", lottery_numbers)
 
 
 
