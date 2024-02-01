@@ -1,28 +1,29 @@
-import datetime
-from datetime import date, timedelta
+from datetime import date
+
 
 def get_days_from_today(date_str):
-  
-  """
-  Функція розраховує  кількість днів між заданою датою і поточною датою.
-  Аргументи:
+    """
+    Функція розраховує кількість днів між заданою датою і поточною датою.
+    Аргументи:
     date_str: Рядок, що представляє дату у форматі 'РРРР-ММ-ДД' (наприклад, '2020-10-09').
-  Повертає:
+    Повертає:
     Ціле число, яке вказує на кількість днів від заданої дати до поточної.
-  """
-  try:
-    # Перетворення рядка дати в об'єкт datetime
-    date_obj = date.fromisoformat(date_str)
-  except ValueError:
-    raise ValueError("Неправильний формат дати. Потрібен формат 'РРРР-ММ-ДД'")
+    """
+    while True:
+        try:
+            # Перетворення рядка дати в об'єкт datetime
+            date_obj = date.fromisoformat(date_str)
+            break  # Якщо конвертація пройшла успішно, вийти з циклу while
+        except ValueError:
+            date_str = input("Неправильний формат дати. Введіть дату у форматі 'РРРР-ММ-ДД': ")
 
-  # Отримання поточної дати
-  today = date.today()
+    # Отримання поточної дати
+    today = date.today()
 
-  # Розрахунок різниці між датами
-  days_diff = (date_obj - today).days
+    # Розрахунок різниці між датами
+    days_diff = (date_obj - today).days
 
-  return days_diff
+    return days_diff
 
 # використання
 today = date.today()
