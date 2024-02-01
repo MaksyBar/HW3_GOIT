@@ -10,7 +10,8 @@ def get_numbers_ticket(min, max, quantity):
     quantity: Ціле число - кількість унікальних чисел, які потрібно генерувати.
 
   Повертає:
-    Список з quantity унікальних чисел у діапазоні від min до max.
+    Список з quantity унікальних чисел у діапазоні від min до max, 
+    або пустий список, якщо параметри не відповідають заданим обмеженням.
   """
 
   try:
@@ -27,20 +28,29 @@ def get_numbers_ticket(min, max, quantity):
 
     # Випадкова вибірка quantity чисел з списку
     unique_numbers = sample(numbers, quantity)
+
     # Сортування списку по зростанню
     unique_numbers.sort()
 
-    # Виведення повідомлення з набором чисел
-    #print(unique_numbers)
-
+    # Повернення списку
     return unique_numbers
 
-  except ValueError as e:
-    # Виведення кращого повідомлення про помилку
-    print(f"Помилка: {e}")
+  except ValueError:
+    # Повернення пустого списку, якщо виникають винятки
+    return []
 
-lottery_numbers = get_numbers_ticket(1, 49, 6)
-print("Ваші лотерейні числа:", lottery_numbers)
+
+# Приклад з невалідними параметрами
+min = 50
+max = 49
+quantity = 7
+
+lottery_numbers = get_numbers_ticket(min, max, quantity)
+
+if lottery_numbers:
+  print("Ваші лотерейні числа:", lottery_numbers)
+else:
+  print(f"лотерейні числа: {lottery_numbers}, список пустий, схоже неможливо згенерувати лотерейні числа. Перевірте параметри.")
 
 
 
