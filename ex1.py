@@ -9,13 +9,13 @@ def get_days_from_today(date_str):
     Повертає:
     Ціле число, яке вказує на кількість днів від заданої дати до поточної.
     """
-    while True:
-        try:
-            # Перетворення рядка дати в об'єкт datetime
-            date_obj = date.fromisoformat(date_str)
-            break  # Якщо конвертація пройшла успішно, вийти з циклу while
-        except ValueError:
-            date_str = input("Неправильний формат дати. Введіть дату у форматі 'РРРР-ММ-ДД': ")
+    days_diff =[]
+    try:
+        date_obj = date.fromisoformat(date_str) # Перетворення рядка дати в об'єкт datetime
+        
+    except ValueError:
+        print("Перевірте правильність формату дати. Необхідно вводити дату у форматі 'РРРР-ММ-ДД' (наприклад, '2020-10-09')")
+        return days_diff
 
     # Отримання поточної дати
     today = date.today()
